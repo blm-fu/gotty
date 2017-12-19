@@ -2,7 +2,7 @@ FROM golang:1.9.2-alpine3.7
 
 EXPOSE 8080
 
-RUN apk add --update git bash openssh && \
+RUN apk add --update git bash openssh vim && \
   go get github.com/yudai/gotty && \
   go get -u -v github.com/holys/redis-cli
 
