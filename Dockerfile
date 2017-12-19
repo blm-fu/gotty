@@ -7,4 +7,4 @@ RUN apk add git bash openssh && \
   go get -u -v github.com/holys/redis-cli
 
 ENTRYPOINT ["gotty"]
-CMD ["--permit-write", "--reconnect", "--credential", "blm:blm123", "--max-connection", 10, "--timeout", 600, "bash"]
+CMD ["--permit-write", "--reconnect", "--credential", "test:test", "--max-connection", "10", "--timeout", "600", "bash"]
