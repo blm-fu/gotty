@@ -1,13 +1,9 @@
-FROM alpine:3.7
+FROM golang:1.9.2-alpine3.7
 
 EXPOSE 8080
 
-RUN apk add --update go git && \
-  mkdir -p /tmp/gotty && \
-  GOPATH=/tmp/gotty go get github.com/yudai/gotty && \
-  mv /tmp/gotty/bin/gotty /usr/local/bin/ && \
-  apk del go git && \
-  rm -rf /tmp/gotty /var/cache/apk/*
+RUN apk add --update git && \
+  go get github.com/yudai/gotty
 
-ENTRYPOINT ["/usr/local/bin/gotty"]
-CMD ["--permit-write","--reconnect","/bin/sh"]
+ENTRYPOINT ["gotty"]
+CMD ["--permit-write","--reconnect","sh"]
