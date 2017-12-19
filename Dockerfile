@@ -1,9 +1,8 @@
-FROM golang:1.9.2-alpine3.7
+FROM paasmule/golang-git
 
 EXPOSE 8080
 
-RUN apk add htop git && \
-  go get github.com/yudai/gotty
+RUN ago get github.com/yudai/gotty
 
 ENTRYPOINT ["gotty"]
-CMD ["--permit-write", "--reconnect", "htop"]
+CMD ["--permit-write", "--reconnect", "bash"]
